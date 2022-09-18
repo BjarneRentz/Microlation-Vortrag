@@ -1,5 +1,68 @@
 \section{Motivation}
 
 \begin{frame}
-    \frametitle{Motivation}
+    \frametitle{Microservice vs Monolith}
+
+    \begin{tikzpicture}
+
+        \node (test) [circle, fill=green] {};
+
+    \end{tikzpicture}
+    Bild Monolioth vs Microservice
+    
+\end{frame}
+
+\begin{frame}
+    \frametitle{Herausforderungen von Microsverices}
+
+    Microservices bringen Nachteile von verteilten Systemen mit sich. Durch die Kommunikation übers Netzwerk insbesondere:
+
+    \begin{itemize}
+        
+        \item Microservices können ausfallen, nicht erreichbar sein
+        \item Aufrufe können verloren gehen
+        \item Aufrufe können eine hohe Latenz aufweisen
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Entuwrfsmuster zur Erhöhung der Resilienz}
+
+    \begin{columns}
+        \begin{column}{.3\textwidth}
+            Entwurfsmuster zum Umgang mit benannten Fehlerquellen:
+
+            \begin{itemize}
+                \item Retry
+                \item Timeout
+                \item Fallback
+                \item Circuit Breaker
+            \end{itemize}
+        \end{column}
+
+        \begin{column}{.7\textwidth}
+            \begin{tikzpicture}[align=center, node distance=3cm and 2cm]
+
+                \node (closed) [state] {geschlossen};
+                \node (open) [state, right=of closed] {offen};
+                \node (halfopen) [state, below=of open] {halboffen};
+                
+                \draw [arrow] (closed) -- node[anchor=south, text width=3cm, yshift=5mm] {Schwellwert überschritten} (open);
+                \draw [arrow] ([xshift=-10mm]open.south) -- node[anchor=east, text width=3cm, xshift=5mm] {Reset Zeit abgelaufen} ([xshift=-10mm]halfopen.north);
+                \draw [arrow] ([xshift=10mm]halfopen.north) -- node[anchor=west, text width=3cm, xshift=-5mm] {Aufruf war fehlerhaft} ([xshift=10mm]open.south);
+                
+                \draw [arrow] (halfopen) -| node[anchor=north] {Aufruf war erfolgreich} (closed);
+            
+            \end{tikzpicture}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+\begin{frame}
+    \begin{large}
+    \large Wie können die Muster effektiv eingesetzt und entsprechend konfiguriert werden?
+
+    \end{large}
 \end{frame}

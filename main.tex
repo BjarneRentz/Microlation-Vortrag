@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer}
 \usetheme{metropolis}           % Use metropolis theme
 \title{MICROLATION -- EDSL zum Simulieren von komplexen
 Microservice-Anwendungen zur Bewertung ihrer Resilienz}
@@ -6,6 +6,13 @@ Microservice-Anwendungen zur Bewertung ihrer Resilienz}
 \author{Bjarne Valentin Rentz}
 \institute{NORDAKADEMIE, Hamburg Port Authority}
 \begin{document}
+
+  \usetikzlibrary{shapes.geometric, positioning, arrows, calc}
+
+  \tikzstyle{state} = [rectangle, rounded corners, text centered, minimum width=3cm, draw=black, fill=red!30]
+  \tikzstyle{arrow} = [thick,->,>=stealth]
+
+
   \maketitle
 
   \input{sections/motivation.tex}
