@@ -1,5 +1,96 @@
 \section{Idee}
 
 \begin{frame}
-    \frametitle{Idee}
+    \frametitle{Microservices Simulieren}
+
+    \begin{columns}
+        
+        \begin{column}{0.5\textwidth}
+            \begin{itemize}
+                \item Programmatisch definieren
+                \item Automaitisierte Durchführung und Auswertung von verschiedenen Szenarien und Konfigurationen
+                \item Komplexere Anwedungen abbilden
+                \item Berücksichtigung fachlicher Aspekte
+            \end{itemize}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \inputminted{csharp}{code/Einleitung.cs}
+        \end{column}
+
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Beispiel}
+
+    \only<1>{
+        \centering
+        \begin{tikzpicture}[align=center,node distance=1cm and 3cm]
+            \node (caller) [circle, text width=4cm, text centered, fill=orange!70] {Aufrufer};
+            \node (pol) [rectangle, fill=gray!80, below=of caller, yshift=25mm] {Retry  + Timeout};
+
+            \node (target) [circle, text width=4cm, text centered, fill=cyan!80, right=of caller] {Ziel};
+    
+            \draw [arrow] (caller) -- (target);
+    
+    \end{tikzpicture}
+    }
+
+    \only<2>{
+
+        \begin{columns}
+            \begin{column}{0.4\textwidth}
+                \begin{tikzpicture}[align=center,node distance=1cm and 1cm]
+                    \node (caller) [circle, text width=2cm, text centered, fill=orange!70] {Aufrufer};
+                    \node (pol) [rectangle, fill=gray!80, below=of caller, yshift=15mm] {Retry  + Timeout};
+                
+                    \node (target) [circle, text width=2cm, text centered, fill=cyan!80, right=of caller] {Ziel};
+                
+                    \draw [arrow] (caller) -- (target);
+                \end{tikzpicture}
+            \end{column}
+
+            \begin{column}{0.6\textwidth}
+                Hohe Anzahl an möglichen Konstellationen
+                \begin{itemize}
+                    \item Erreichbarkeit des Ziel-Microservices (50\%, 60\%, 70\%, 80\%, 90\%, 100\%)
+                    \item Timeout Zeit in ms (1000, 1500, 2000, 2500, 3000)
+                    \item Anzahl an erneuten Versuchen (0--4)
+                \end{itemize}
+
+                Allein in diesem Beispiel ergeben sich $160 = 6 * 5 * 5$ mögliche Kombinationen
+
+                \end{column}
+
+
+        \end{columns}
+    }
+\end{frame}
+
+\begin{frame}
+    \frametitle{Beispiel - Code}
+    Problemstellung mit MICROLATION lösen
+\end{frame}
+
+\begin{frame}
+    \frametitle{Beispiel - Auswertung}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Verbesserungspotenzial}
+    \begin{itemize}
+        \item Verkette Aufrufe abbilden
+        \item Aggregierung der Ergebnisse, um Speicherverbrauch zu reduzieren
+        \item Manipulation der Aufrufkette
+        \item Auswertungsmöglichkeiten integrieren
+        \item Automatische Speicherung der Ergebnisse (z.B. Datenbank)
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Vielen Dank für die Aufmerksamkeit}
 \end{frame}

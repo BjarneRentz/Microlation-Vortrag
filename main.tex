@@ -1,4 +1,10 @@
 \documentclass[aspectratio=169]{beamer}
+
+
+\usepackage{minted}
+\setminted[csharp]{framesep=2mm,linenos,breaklines,tabsize=4, fontsize=\footnotesize}
+
+
 \usetheme{metropolis}           % Use metropolis theme
 \title{MICROLATION -- EDSL zum Simulieren von komplexen
 Microservice-Anwendungen zur Bewertung ihrer Resilienz}
@@ -11,6 +17,7 @@ Microservice-Anwendungen zur Bewertung ihrer Resilienz}
 
   \tikzstyle{state} = [rectangle, rounded corners, text centered, minimum width=3cm, draw=black, fill=red!30]
   \tikzstyle{arrow} = [thick,->,>=stealth]
+
 
 
   \maketitle
