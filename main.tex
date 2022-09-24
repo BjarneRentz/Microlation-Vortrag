@@ -1,9 +1,12 @@
 \documentclass[aspectratio=169]{beamer}
 
-
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
 \usepackage{minted}
 \setminted[csharp]{framesep=2mm,linenos,breaklines,tabsize=4, fontsize=\footnotesize}
 
+%Prevent error
+\DeclareUnicodeCharacter{03B3}{$\gamma$}
 
 \usetheme{metropolis}           % Use metropolis theme
 \title{MICROLATION -- EDSL zum Simulieren von komplexen

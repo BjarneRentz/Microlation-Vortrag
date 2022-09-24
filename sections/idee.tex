@@ -83,6 +83,85 @@
 
 \begin{frame}
     \frametitle{Beispiel - Auswertung}
+
+
+    \pgfplotstableread[col sep=semicolon]{Results.csv}\datatable
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{tikzpicture}
+                \usetikzlibrary{plotmarks}
+                \begin{axis}[
+                    width=1.07\linewidth,
+                    xtick=data,
+                    xticklabels from table={\datatable}{Availability},
+                    legend style={at={(1,0.5)},anchor=south east},
+                    ylabel={Aufrufdauer in ms},
+                    ylabel near ticks,
+                    xlabel={Erreichbarkeit},
+                    xtick pos=bottom
+                ]
+                
+                \addplot [mark=o, blue!80] table [x expr=\coordindex, y={1000|0_T}]{\datatable};
+                \addlegendentry{$1000 | 0$}
+                
+                \addplot [mark=o, green!80] table [x expr=\coordindex, y={1000|1_T}]{\datatable};
+                \addlegendentry{$1000 | 1$}
+                
+                \addplot [mark=o, red!80] table [x expr=\coordindex, y={1000|2_T}]{\datatable};
+                \addlegendentry{$1000 | 2$}
+                
+                \addplot [mark=o, cyan!80] table [x expr=\coordindex, y={1000|3_T}]{\datatable};
+                \addlegendentry{$1000 | 3$}
+                
+                \addplot [mark=o, orange!80] table [x expr=\coordindex, y={1000|4_T}]{\datatable};
+                \addlegendentry{$1000 | 4$}
+                
+                \end{axis}
+                \end{tikzpicture}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
+            \begin{tikzpicture}
+                \begin{axis}[
+                    width=1.07\linewidth,
+                    xtick=data,
+                    xticklabels from table={\datatable}{Availability},
+                    legend style={at={(1,0.5)},anchor=south east},
+                    ylabel={Anzahl an Fehlern},
+                    ylabel near ticks,
+                    xlabel={Erreichbarkeit},
+                    xtick pos=bottom
+                ]
+                
+                \addplot [mark=o, blue!80] table [x expr=\coordindex, y={1000|0_E}]{\datatable};
+                \addlegendentry{$1000 | 0$}
+                
+                \addplot [mark=o, green!80] table [x expr=\coordindex, y={1000|1_E}]{\datatable};
+                \addlegendentry{$1000 | 1$}
+                
+                \addplot [mark=o, red!80] table [x expr=\coordindex, y={1000|2_E}]{\datatable};
+                \addlegendentry{$1000 | 2$}
+                
+                \addplot [mark=o, cyan!80] table [x expr=\coordindex, y={1000|3_E}]{\datatable};
+                \addlegendentry{$1000 | 3$}
+                
+                \addplot [mark=o, orange!80] table [x expr=\coordindex, y={1000|4_E}]{\datatable};
+                \addlegendentry{$1000 | 4$}
+                
+                \end{axis}
+                \end{tikzpicture}
+        \end{column}
+    \end{columns}
+       
+    
+    
+       
+    
+    
+
+
+
 \end{frame}
 
 
