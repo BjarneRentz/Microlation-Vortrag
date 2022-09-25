@@ -3,12 +3,33 @@
 \begin{frame}
     \frametitle{Microservice vs Monolith}
 
-    \begin{tikzpicture}
+    \begin{columns}
+        
+        \begin{column}{0.5\textwidth}
+            \begin{tikzpicture}
 
-        \node (test) [circle, fill=green] {};
+                \draw[] (0,0) circle (30mm);
+                \draw[fill=red!70] (0,1) circle (10mm) node {UI};
+                \draw[fill=cyan!70] (-1.5,-1) circle (10mm) node {Logik};
+                \draw[fill=green!70] (1.5,-1) circle (10mm) node {Daten\-zugriff};
+        
+            \end{tikzpicture}
+        \end{column}
 
-    \end{tikzpicture}
-    Bild Monolioth vs Microservice
+        \begin{column}{0.5\textwidth}
+            
+            \begin{tikzpicture}
+                \node (ui) [circle, fill=red!70, ] {UI};
+
+                \node (s1) [circle, fill=orange!70, below left=of ui] {Service};
+                \node (s3) [circle, fill=orange!70, below right=of ui] {Service};
+            \end{tikzpicture}
+            
+        \end{column}
+
+
+    \end{columns}
+
     
 \end{frame}
 
@@ -62,7 +83,7 @@
 
 \begin{frame}
     \begin{large}
-    \large Wie können die Muster effektiv eingesetzt und entsprechend konfiguriert werden?
+    Wie können die Muster effektiv eingesetzt und entsprechend konfiguriert werden?
 
     \end{large}
 \end{frame}
