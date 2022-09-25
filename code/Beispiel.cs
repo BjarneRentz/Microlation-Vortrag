@@ -3,7 +3,7 @@ var target = new Microservice("Target")
 {
 	Routes = new List<IRoute>
 	{
-		new Route<int> { Url = "Target", Faults = faultPolicy,Value = () => 3 }
+		new Route<int> { Url = "Target", Faults = faultPolicy, Value = () => 3 }
 	}
 };
 caller.Call(target, new CallOptions<int>
