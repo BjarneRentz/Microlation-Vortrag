@@ -1,7 +1,7 @@
 \section{Motivation}
 
 \begin{frame}
-    \frametitle{Microservice vs Monolith}
+    \frametitle{Monolith vs Microservice}
 
     \begin{columns}
         
@@ -23,6 +23,9 @@
 
                 \node (s1) [circle, fill=orange!70, below left=of ui] {Service};
                 \node (s3) [circle, fill=orange!70, below right=of ui] {Service};
+
+                \draw[arrow] (ui) -- (s1);
+                \draw[arrow] (s1) -- (s3);
             \end{tikzpicture}
             
         \end{column}
